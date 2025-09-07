@@ -1,0 +1,268 @@
+Awesome! Let’s dive in and start crafting your **homepage** with your brand’s look, feel, and voice all woven together.
+
+---
+
+### Here’s the plan:
+
+1. **Homepage Structure:**
+
+   * Hero section with welcoming message + call-to-action (shop / book)
+   * Featured product showcase (hair, clothes, oils)
+   * Salon services teaser
+   * About section (warm intro about you and your mission)
+   * Contact / social links footer
+
+2. **Style:**
+
+   * Colors from your palette (blush pink, cocoa brown, gold, black, olive)
+   * Elegant serif + modern sans-serif fonts
+   * Soft curves, subtle animations, cozy luxurious vibe
+   * Balanced tone — warm, professional, playful but polished
+
+---
+
+### Here’s a first draft of the **HTML + CSS** for your homepage:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soft Femme Luxe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #2b1f1f;
+    }
+    body {
+      background: #fdf7f3;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* Header/Hero */
+    header {
+      background: linear-gradient(135deg, #f9e4e1 0%, #6c544b 100%);
+      color: #2b1f1f;
+      padding: 4rem 0 6rem;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      position: relative;
+      border-radius: 0 0 3rem 3rem;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+    header .btn-primary {
+      background: #c88f6a;
+      color: #fff;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 15px rgba(200, 143, 106, 0.5);
+      transition: background 0.3s ease;
+    }
+    header .btn-primary:hover {
+      background: #b67b50;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 0;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: #6c544b;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 20px rgba(107, 84, 75, 0.15);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+    .product-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .product-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #2b1f1f;
+    }
+    .product-info p {
+      font-size: 1rem;
+      color: #6c544b;
+      margin-bottom: 1rem;
+    }
+    .product-info .price {
+      font-weight: 700;
+      color: #c88f6a;
+      font-size: 1.2rem;
+    }
+
+    /* Salon Services Cards */
+    .services-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .service-card {
+      background: #f9f1ec;
+      border-radius: 1rem;
+      box-shadow: 0 6px 12px rgba(200, 143, 106, 0.25);
+      padding: 2rem;
+      width: 280px;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      transition: box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      box-shadow: 0 12px 24px rgba(200, 143, 106, 0.4);
+    }
+    .service-card h3 {
+      color: #6c544b;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .service-card p {
+      font-size: 1rem;
+      color: #4a3a31;
+      margin-bottom: 1.2rem;
+    }
+    .service-card .price {
+      font-weight: 700;
+      color: #c88f6a;
+      font-size: 1.1rem;
+    }
+
+    /* About Section */
+    .about-text {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #4a3a31;
+      line-height: 1.8;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background: #6c544b;
+      color: #fdf7f3;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #fcd5b2;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      .services-list {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Welcome, Queen.</h1>
+      <p>Where luxury meets cozy comfort — your space to feel beautiful, bold, and pampered.</p>
+      <a href="#shop" class="btn-primary" aria-label="Shop Now">Shop Luxe</a>
+    </div>
+  </header>
+
+  <section id="shop">
+    <h2>Featured Products</h2>
+    <div class="products-grid">
+      <article class="product-card">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80" alt="Silk Satin Dress" class="product-img" />
+        <div class="product-info">
+          <h3>Silk Satin Dress</h3>
+          <p>Luxuriously soft and flattering, perfect for any occasion.</p>
+          <p class="price">$120</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" alt="Beaded Lace Top" class="product-img" />
+        <div class="product-info">
+          <h3>Beaded Lace Top</h3>
+          <p>Elegant, delicate, with intricate hand-beaded details.</p>
+          <p class="price">$95</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=400&q=80" alt="Natural Hair Oil" class="product-img" />
+        <div class="product-info">
+          <h3>Natural Hair Oil</h3>
+          <p>Nourish and shine your curls with our signature blend.</p>
+          <p class="price">$30</p>
+        </div>
+     
+```
